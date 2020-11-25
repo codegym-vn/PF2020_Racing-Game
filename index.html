@@ -15,10 +15,15 @@
     let carYPosition = 20;
 
     function moveCarUp() {
+
+      // Xoá hình chữ nhật đã vẽ trước đó
+      gameContext.clearRect(20, carYPosition, 150, 100);
+      
       carYPosition--;
       gameContext.beginPath();
       gameContext.fillStyle='#fa4b2a';
       gameContext.fillRect(20, carYPosition, 150, 100);
+      
     }
 
     setInterval(moveCarUp, 100);
