@@ -30,7 +30,23 @@
       
     }
 
-    setInterval(moveCarUp, 100);
+    function moveCarDown() {
+
+      // Xoá hình chữ nhật đã vẽ trước đó
+      gameContext.clearRect(20, carYPosition, 150, 100);
+      
+
+      if (carYPosition < 600) {
+        carYPosition++;
+      }
+      
+      gameContext.beginPath();
+      gameContext.fillStyle='#fa4b2a';
+      gameContext.fillRect(20, carYPosition, 150, 100);
+      
+    }
+
+    setInterval(moveCarDown, 100);
   </script>
 </body>
 </html>
