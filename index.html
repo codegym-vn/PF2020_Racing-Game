@@ -18,35 +18,28 @@
 
     let gameTopPosition = 0;
     let gameBottomPosition = 600;
+    let timeLoop = 10;
 
     function drawCar() {
       gameContext.beginPath();
       gameContext.fillStyle='#fa4b2a';
       gameContext.fillRect(carXPosition, carYPosition, carWidth, carHeight);
     }
- 
-    function moveCarUp() {
+
+    let yDistance = 1;
+    function moveCar() {
       gameContext.clearRect(carXPosition, carYPosition, carWidth, carHeight);
 
-      if (carYPosition > gameTopPosition) {
-        carYPosition--;
+      let isTouchTop = carYPosition < gameTopPosition;
+      let isTouchBottom = carYPosition + carHeight > gameBottomPosition;
+      if (isTouchTop || isTouchBottom) {
+        yDistance = -yDistance;
       }
-      
+
+      carYPosition += yDistance;
       drawCar();
     }
-
-    function moveCarDown() {
-      gameContext.clearRect(carXPosition, carYPosition, carWidth, carHeight);
-      
-      if (carYPosition + carHeight < gameBottomPosition) {
-        carYPosition++;
-      }
-      
-      drawCar();
-    }
-
-    let timeLoop = 10;
-    setInterval(moveCarDown, timeLoop);
+    setInterval(moveCar, timeLoop);
   </script>
 </body>
 </html>
