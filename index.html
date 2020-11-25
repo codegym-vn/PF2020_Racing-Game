@@ -19,7 +19,11 @@
       // Xoá hình chữ nhật đã vẽ trước đó
       gameContext.clearRect(20, carYPosition, 150, 100);
       
-      carYPosition--;
+
+      if (carYPosition > 0) {
+        carYPosition--;
+      }
+      
       gameContext.beginPath();
       gameContext.fillStyle='#fa4b2a';
       gameContext.fillRect(20, carYPosition, 150, 100);
