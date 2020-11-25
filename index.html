@@ -14,36 +14,30 @@
 
     let carYPosition = 20;
 
+    function drawCar() {
+      gameContext.beginPath();
+      gameContext.fillStyle='#fa4b2a';
+      gameContext.fillRect(20, carYPosition, 150, 100);
+    }
+ 
     function moveCarUp() {
-
-      // Xoá hình chữ nhật đã vẽ trước đó
       gameContext.clearRect(20, carYPosition, 150, 100);
-      
 
       if (carYPosition > 0) {
         carYPosition--;
       }
       
-      gameContext.beginPath();
-      gameContext.fillStyle='#fa4b2a';
-      gameContext.fillRect(20, carYPosition, 150, 100);
-      
+      drawCar();
     }
 
     function moveCarDown() {
-
-      // Xoá hình chữ nhật đã vẽ trước đó
       gameContext.clearRect(20, carYPosition, 150, 100);
       
-
       if (carYPosition + 100 < 600) {
         carYPosition++;
       }
       
-      gameContext.beginPath();
-      gameContext.fillStyle='#fa4b2a';
-      gameContext.fillRect(20, carYPosition, 150, 100);
-      
+      drawCar();
     }
 
     setInterval(moveCarDown, 10);
